@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scrollama Demo: Sticky JS</title>
+	<meta name="description" content="Scrollama Demo: Sticky JS">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/* default / demo page */
+		* {
+			box-sizing: border-box;
+		}
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+		body {
+			min-height: 1280px;
+			font-weight: 300;
+			color: #2a2a2a;
+		}
+		p,
+		h1,
+		h2,
+		h3,
+		h4,
+		a {
+			margin: 0;
+			font-weight: 300;
+		}
+		a,
+		a:visited,
+		a:hover {
+			color: #f30;
+			text-decoration: none;
+			border-bottom: 1px solid currentColor;
+		}
+		#intro {
+			max-width: 40rem;
+			margin: 1rem auto;
+		}
+		.intro__overline {
+			font-size: 1.4rem;
+		}
+		.intro__hed {
+			font-size: 1.4rem;
+			margin: 1.5rem auto;
+			text-transform: uppercase;
+			font-weight: 900;
+			letter-spacing: 0.05em;
+			text-align: center;
+		}
+		.intro__dek {
+			font-size: 1.4rem;
+			text-align: center;
+		}
+		/* demo */
+		#intro {
+			margin-bottom: 320px;
+		}
+		#outro {
+			height: 640px;
+		}
+		/* scrollama */
+		#scroll {
+			position: relative;
+		}
+		.scroll__graphic {
+			position: -webkit-sticky;
+			position: sticky;
+			float: right;
+			top: 0;
+			right: 2rem;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			background-color: #fff;
+			border: 1px solid #fff;
+		}
+		.scroll__graphic p {
+			text-align: center;
+			padding: 1rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-moz-transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			font-size: 8rem;
+			font-weight: 900;
+			color: #666;
+		}
+		.scroll__text {
+			position: relative;
+			padding: 0 1rem;
+			max-width: 30rem;
+			width: 33%;
+		}
+		.step {
+			margin: 0 auto 2rem auto;
+			border: 1px solid #fff;
+		}
+		.step:last-child {
+			border-bottom: 1px solid #fff;
+		}
+		.step.is-active {
+			background-color: white;
+		}
+		.step p {
+			text-align: center;
+			padding: 1rem;
+			font-size: 1.5rem;
+		}
+
+		.scrollama__debug-offset p {
+			color: #fff;
+		}
+
+		.visual-wrap {
+    		align-items: flex-start;
+		}
+		.visual-wrap {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    text-align: center;
+		    width: 900px;
+		    height: 482.4px;
+		}
+
+/* This will style any <img> element in .parent div */
+		.visual-wrap .img1 {
+		   height: 100%;
+		   width: 100%;
+		}
+
+		.legend {
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			width: 500px;
+		    height: 40px;
+		}
+		.legend-circ {
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			width: 100px;
+		    height: 50px;
+		}
+
+		.button{
+		     background-color: Transparent;
+		    background-repeat:no-repeat;
+		    border: none;
+		    cursor:pointer;
+		    overflow: hidden;
+		    outline:none;
+    		text-decoration: wavy underline;
+    		text-decoration-color: #f30;
+    		text-align: center;
+			font-size: 1.5rem;
+			text-align: center;
+			font-weight: 300;
+			color: #666;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			width: auto;
+   			margin: 0px; 
+   			padding-bottom: 2px;
+   			padding-top: 0px;
+   			padding-right: 0px;
+   			padding-left: 0px; 
+
+		}
+
+		.tippy-tooltip.light-theme {
+			  color: #26323d;
+			  background-color: white;
+
+			  .tippy-backdrop {
+			    background-color: white;
+			  }
+			    border-radius: 25px;
+    			border: 2px solid #808080;
+    			width: 400px;
+
+
+			  .tippy-roundarrow {
+			    fill: white;
+			  }
+		}
+
+	</style>
+ 	<script src='https://d3js.org/d3.v4.min.js'></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.js'></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/1.4.3/scrollama.min.js'></script>
+	<script src="https://unpkg.com/tippy.js@2/dist/tippy.all.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js/dist/tippy.css">
+</head>
+
+<body>
+	<section id='intro'>
+		<p class='intro__overline'>
+		</p>
+		<h1 class='intro__hed'>Internet deserts</h1>
+		<p class='intro__dek'>
+		</p>
+		<!--<p style="font-size: 1.4rem;">hello this is stuff</p>-->
+	</section>
+	<section id='scroll'>
+		<div class='scroll__graphic sticky'>
+			
+			<div class="visual-wrap">
+				<img src="states.png" class="img1", id='states', style="opacity: 1;"> 
+				<img src="legend.png" class="legend", id='legend', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="0.png" class="img1", id='im0', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="1.png" class="img1", id='im1', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="2.png" class="img1", id='im2', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="3.png" class="img1", id='im3', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="4.png" class="img1", id='im4', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="5.png" class="img1", id='im5', style="opacity: 0;"> 
+				<img src="leg_circ.png" class="legend-circ", id='legend-circ', style="opacity: 0;">
+			</div>
+
+			<div class="visual-wrap">
+				<img src="6.png" class="img1", id='im6', style="opacity: 0;"> 
+			</div>
+
+			<div class="visual-wrap">
+				<img src="7.png" class="img1", id='im7', style="opacity: 0;"> 
+			</div>
+		</div>
+		<div class='scroll__text'>
+			<div class='step' data-step='0'>
+				<p>These are the fifty-nifty United States.</p>
+				<div id ="reveal0", style="opacity: 0;">
+					<p>And this is the average speed of the internet in those 50 states during 2009.</p>
+					<p>The data we're using here, the M-Lab dataset, started that year, so there's a lot of empty space.</p>
+					<p>But the areas that aren't empty are mainly dark black, meaning people in those census areas had internet speeds between 0 and 5 megabytes per second (Mbps).</p>
+					<p>Netflix was still mailing out DVD's in that dark time, long ago, but for reference, 5 Mbps is their <a href="https://help.netflix.com/en/node/306">minimum recomendation from streaming HD video.</a>
+				</div>
+			</div>
+			<div class='step' data-step='1'>
+				<div id = "reveal1", style="opacity: 0;">
+					<p>2012 is more of the same.</p>
+					<p>The Mountains area, the Midwest, and rural Maine are all as slow ever.</p>
+					<p> And in a pattern that repeats over the next couple time chunks, the East Coast from Washington, D.C. to New York City has the fastest internet in the country.</p>
+				</div>
+			</div>
+
+			<div class='step' data-step='2'>
+				<div id = "reveal2", style="opacity: 0;">
+					<p>Here's the internet speed in 2015.</p> 
+					<p>While North Dakota is mainly known for Fargo and the Great Plains, outside the D.C.-NYC corridor, it also has some of the fastest internet speeds in the country.</p>
+					<p>Though in this case, that isn't all that fast.</p>
+				</div>
+			</div>
+			<div class='step' data-step='3'>
+				<div id = "reveal3", style="opacity: 0;">
+					<p>2018 finally brings good news to people who live outside the East Coast and North Dakota.</p>
+					<p> Where black was the dominant color from 2009 to 2015, deep purple and light violet takes its place this year.</p>
+					<p>In 2018, for the first time, the 5-10 and 10-20 Mbps ranges for internet speed are the most common brackets for census tracts.</p>
+					<p>That's reflected in the average internet speed across the U.S. It increased from 4.6 in 2010 to 5.2 in 2012, to 7.9 in 2015, and finally to 10.5 in 2018.</p>
+				</div>
+			</div>
+			<div class='step' data-step='4'>
+				<div id = "reveal4", style="opacity: 0;">
+					<p>But this happy tale of better internet isn't told in every home. There are lots of places where things are just the same as ever. </p>
+					<p>Areas like these&#8211;their internet speeds ignored by the march of technological progress seen from ocean to ocean&#8211;are what we call <em>internet deserts</em>.</p>
+					<p>These are the tracts with the same slow internet today that they had in 2010.</p>
+				</div>
+			</div>
+			<div class='step' data-step='5'>
+				<div id = "reveal5", style="opacity: 0;">
+					<p>Another kind of internet desert is especially damaging.</p>
+					<p>More like <a href="http://americannutritionassociation.org/newsletter/usda-defines-food-deserts">food deserts</a> and <a href="https://www.chronicle.com/interactives/education-deserts">education deserts</a>, these internet deserts are areas of the country where the internet is slow for everyone around.</p> 
+					<p>Every orange dot on the map to the right is an area that in 2018 had internet speed slower than 2.5 Mbps where 80% of the surrounding areas also had internet slower than 2.5 Mbps. Every purple dot is an area that had <button class="button" title="I'm a tooltip!">latency</button> greater than 100 ms where 80% of its neighboring areas did too.</p>
+					
+					<!--This gets removed and injected into the tooltip-->
+					<div id= myTemplate>
+						<p>What's latency?</p>
+						<br/>
+						<p> When you talk to a friend on the internet, your message has to physically leave your computer, travel through the pipes of the internet, and find its way into your friend's computer. The latency is the amount of time it takes your message to get from your computer to your friend's computer.</p>
+						<br/>
+						<p>High latency is bad. Using the internet when you have high latency is like having a conversation with a drunk person while sober. You say something, but there's a lag time before you get a response.</p>
+					</div>
+
+				</div>
+			</div>
+			<div class='step' data-step='6'>
+				<p>These deserts have slow speed.</p>
+			</div>
+			<div class='step' data-step='7'>
+				<p>STEP 7</p>
+			</div>
+		</div>
+	</section>
+	<section id='outro'>
+		<p>All credit to <a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js</a> for the tutorial code (Demo: Sticky Graphic Position) this is totally copied from.</p></section>
+	<script>
+		// using d3 for convenience
+		var container = d3.select('#scroll');
+		var graphic = container.select('.scroll__graphic');
+		var text = container.select('.scroll__text');
+		var step = text.selectAll('.step');
+		// initialize the scrollama
+		var scroller = scrollama();
+		// generic window resize listener event
+		function handleResize() {
+			// 1. update height of step elements
+			var stepHeight = Math.floor(window.innerHeight * 0.75);
+			step.style('height', stepHeight + 'px');
+			// 2. update width/height of graphic element
+			var bodyWidth = d3.select('body').node().offsetWidth;
+			var graphicMargin = 16 * 4;
+			var textWidth = text.node().offsetWidth;
+			var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
+			var graphicHeight = Math.floor(window.innerHeight / 2)
+			var graphicMarginTop = Math.floor(graphicHeight / 2)
+			graphic
+				.style('width', graphicWidth + 'px')
+				.style('height', graphicHeight + 'px')
+				.style('top', graphicMarginTop + 'px');
+			// 3. tell scrollama to update new element dimensions
+			scroller.resize();
+		}
+		// scrollama event handlers
+		function handleStepEnter(response) {
+			// response = { element, direction, index }
+			// add color to current step only
+			step.classed('is-active', function (d, i) {
+				return i === response.index;
+			})
+			// update graphic based on step
+			fade_out_time = 700
+			fade_in_time = 500
+
+			new_plot_name="#im"+String(response.index);
+
+			if(response.index==0){
+				graphic.select("#legend").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",1);
+			}else if(response.index==5){
+				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);
+			}else if(response.index==7){
+				graphic.select("#states").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",0); 
+			}
+			if(response.index>=4){
+				graphic.select("#legend").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",0);
+			}
+			if (response.index<7){
+				graphic.select("#states").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity",1);
+				graphic.select("#im4").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);
+			}
+			if (response.index<5){
+				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 0);
+			}
+
+			graphic.selectAll("img:not(#states):not(#legend):not(#legend-circ)").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
+			text.selectAll(String("#reveal")+String(response.index)).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);			
+
+			setTimeout(function(){graphic.select(new_plot_name).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1); }, fade_in_time);
+			
+
+		}
+		function handleContainerEnter(response) {
+			// response = { direction }
+		}
+		function handleContainerExit(response) {
+			// response = { direction }
+		}
+		function setupStickyfill() {
+			d3.selectAll('.sticky').each(function () {
+				Stickyfill.add(this);
+			});
+		}
+		function init() {
+			setupStickyfill();
+			// 1. force a resize on load to ensure proper dimensions are sent to scrollama
+			handleResize();
+			// 2. setup the scroller passing options
+			// this will also initialize trigger observations
+			// 3. bind scrollama event handlers (this can be chained like below)
+			scroller.setup({
+				container: '#scroll',
+				graphic: '.scroll__graphic',
+				text: '.scroll__text',
+				step: '.scroll__text .step',
+				debug: false,
+				offset: 0.28,
+			})
+				.onStepEnter(handleStepEnter)
+				.onContainerEnter(handleContainerEnter)
+				.onContainerExit(handleContainerExit);
+			// setup resize event
+			window.addEventListener('resize', handleResize);
+		}
+		// kick things off
+		init();
+	
+	</script>
+
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js/dist/tippy.standalone.min.js"></script>
+
+    <!-- Initialize tooltips by calling the `tippy` function with a CSS selector -->
+    <script>
+    tippy('button', {
+  theme: 'light',
+  placement: 'top-start',
+  distance: 0,
+  arrow: true,
+  arrowType: 'sharp',
+  arrowTransform: 'scale(0.7)',
+  allowTitleHTML: true,
+  html: document.querySelector('#myTemplate') //skinny arrow
+})	
+	</script>
+
+</body>
+
+</html>
