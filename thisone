@@ -17,11 +17,11 @@
 			margin: 0;
 			padding: 0;
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-			background-color: #303030;
 		}
 		body {
 			min-height: 1280px;
 			font-weight: 300;
+			color: #2a2a2a;
 		}
 		p,
 		h1,
@@ -31,7 +31,6 @@
 		a {
 			margin: 0;
 			font-weight: 300;
-			color: white;
 		}
 		a,
 		a:visited,
@@ -61,7 +60,7 @@
 		}
 		/* demo */
 		#intro {
-			margin-bottom: 100px;
+			margin-bottom: 320px;
 		}
 		#outro {
 			height: 640px;
@@ -79,6 +78,8 @@
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
+			background-color: #fff;
+			border: 1px solid #fff;
 		}
 		.scroll__graphic p {
 			text-align: center;
@@ -101,21 +102,22 @@
 		}
 		.step {
 			margin: 0 auto 2rem auto;
-			border: 0px solid #fff;
+			border: 1px solid #fff;
 		}
 		.step:last-child {
-			border-bottom: 0px solid #fff;
+			border-bottom: 1px solid #fff;
+		}
+		.step.is-active {
+			background-color: white;
 		}
 		.step p {
 			text-align: center;
 			padding: 1rem;
 			font-size: 1.5rem;
 		}
-
 		.scrollama__debug-offset p {
 			color: #fff;
 		}
-
 		.visual-wrap {
     		align-items: flex-start;
 		}
@@ -132,13 +134,11 @@
 		    width: 900px;
 		    height: 482.4px;
 		}
-
 /* This will style any <img> element in .parent div */
 		.visual-wrap .img1 {
 		   height: 100%;
 		   width: 100%;
 		}
-
 		.legend {
 			position: absolute; 
 			bottom: 0; 
@@ -153,7 +153,6 @@
 			width: 100px;
 		    height: 50px;
 		}
-
 		.button{
 		     background-color: Transparent;
 		    background-repeat:no-repeat;
@@ -175,26 +174,20 @@
    			padding-top: 0px;
    			padding-right: 0px;
    			padding-left: 0px; 
-
 		}
-
 		.tippy-tooltip.light-theme {
 			  color: #26323d;
-			  background-color: #303030;
-
+			  background-color: white;
 			  .tippy-backdrop {
-			    background-color: #303030;
+			    background-color: white;
 			  }
 			    border-radius: 25px;
     			border: 2px solid #808080;
     			width: 400px;
-
-
 			  .tippy-roundarrow {
 			    fill: white;
 			  }
 		}
-
 	</style>
  	<script src='https://d3js.org/d3.v4.min.js'></script>
  	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -212,16 +205,8 @@
 		</p>
 		<h1 class='intro__hed'>Internet deserts</h1>
 		<p class='intro__dek'>
-			Nick Thieme
 		</p>
-	</br>
-		<p>
-		Not so long ago, I watched my partner of 10 years grow anxious and angry as the Free Application for Federal Student Aid (FAFSA) website frustrated her attempts to file for the student loans she needs. After about an 
-		hour of trying, she took a break and I asked if there was another way to do this because I'd only ever seen FAFSA forms online. She was as stumped as me.</p>
-	</br>
-		<p>Online gateways are our sole practicable points of entry to student loans, job markets, higher education, and for good or bad, to culture. Sure, in some cases you can print a resume and mail it accross the country to a hiring manager, or print a university application to send to admissions, or go to the library to read about the cultural mood, but you're disadvantaged by living on a time delay if you do, and those cases are fewer each year.</p>
-	</br>
-		<p>Web content is getting bigger because of video prevalence and larger back ends. Are speeds increasing fast enough to keep up?</p>
+		<!--<p style="font-size: 1.4rem;">hello this is stuff</p>-->
 	</section>
 	<section id='scroll'>
 		<div class='scroll__graphic sticky'>
@@ -261,7 +246,7 @@
 			</div>
 
 			<div class="visual-wrap">
-				<img src="7.png" class="img1", id='im7', style="opacity: 0; width: 600px;"> 
+				<img src="7.png" class="img1", id='im7', style="opacity: 0;"> 
 			</div>
 		</div>
 		<div class='scroll__text'>
@@ -295,14 +280,13 @@
 					<p> Where black was the dominant color from 2009 to 2015, deep purple and light violet takes its place this year.</p>
 					<p>In 2018, for the first time, the 5-10 and 10-20 Mbps ranges for internet speed are the most common brackets for census tracts.</p>
 					<p>That's reflected in the average internet speed across the U.S. It increased from 4.6 in 2010 to 5.2 in 2012, to 7.9 in 2015, and finally to 10.5 in 2018.</p>
-					<p>For a lot of people, the answer to our original question is yes, then.</p>
 				</div>
 			</div>
 			<div class='step' data-step='4'>
 				<div id = "reveal4", style="opacity: 0;">
 					<p>But this happy tale of better internet isn't told in every home. There are lots of places where things are just the same as ever. </p>
 					<p>Areas like these&#8211;their internet speeds ignored by the march of technological progress seen from ocean to ocean&#8211;are what we call <em>internet deserts</em>.</p>
-					<p>These are the tracts with the same slow internet today that they had in 2010. Only North Dakota and Delaware are desert-free.</p>
+					<p>These are the tracts with the same slow internet today that they had in 2010.</p>
 				</div>
 			</div>
 			<div class='step' data-step='5'>
@@ -322,18 +306,12 @@
 
 				</div>
 			</div>
-			<div class='step' data-step='6'>
-				<div id = "reveal6", style="opacity: 0;">
-					<p>Deserts don't spring up overnight at random. That's as true for the Gobi desert as it is for the food deserts experienced by Latino and Black residents of South Los Angeles. What do internet deserts have in common?</p>
-					<p>Looking at the demographics of census tracts that contain internet deserts is simulataneously enlightening and misleading. Compared with census tracts not containing deserts, desert tracts are 15% whiter, 3x less black, and roughly equivalent in income.</p>
-					<p>But in this case, race is an effect, not a cause. In reality, deserts are much more likely to show up in rural tracts than they are urban ones, by a factor of about 4. Since rural areas are also much whiter, tracts containing deserts are whiter as well.</p>
-				</div>
+			<!--<div class='step' data-step='6'>
+				<p>These deserts have slow speed.</p>
 			</div>
 			<div class='step' data-step='7'>
-				<div id = "reveal6", style="opacity: 0;">
-					<p>In fact, of the five states with the highest percentage of internet desert tracts, four have white population percentages above the national average of 72% with two states having white populations of 90% or above.</p>
-				</div>
-			</div>
+				<p>STEP 7</p>
+			</div>-->
 		</div>
 	</section>
 	<section id='outro'>
@@ -349,15 +327,15 @@
 		// generic window resize listener event
 		function handleResize() {
 			// 1. update height of step elements
-			var stepHeight = Math.floor(window.innerHeight * 1.2);
+			var stepHeight = Math.floor(window.innerHeight * 0.75);
 			step.style('height', stepHeight + 'px');
 			// 2. update width/height of graphic element
 			var bodyWidth = d3.select('body').node().offsetWidth;
 			var graphicMargin = 16 * 4;
 			var textWidth = text.node().offsetWidth;
 			var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
-			var graphicHeight = Math.floor(window.innerHeight / 2);
-			var graphicMarginTop = Math.floor(graphicHeight / 2);
+			var graphicHeight = Math.floor(window.innerHeight / 2)
+			var graphicMarginTop = Math.floor(graphicHeight / 2)
 			graphic
 				.style('width', graphicWidth + 'px')
 				.style('height', graphicHeight + 'px')
@@ -375,32 +353,28 @@
 			// update graphic based on step
 			fade_out_time = 700
 			fade_in_time = 500
-
 			new_plot_name="#im"+String(response.index);
-
 			if(response.index==0){
 				graphic.select("#legend").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",1);
 			}else if(response.index==5){
 				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);
-			}else if(response.index==6){
+			}else if(response.index==7){
 				graphic.select("#states").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",0); 
 			}
 			if(response.index>=4){
 				graphic.select("#legend").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",0);
 			}
-			if (response.index<6){
+			if (response.index<7){
 				graphic.select("#states").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity",1);
 				graphic.select("#im4").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);
 			}
-			if (response.index!=5){
+			if (response.index<5){
 				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 0);
 			}
 			graphic.selectAll("img:not(#states):not(#legend):not(#legend-circ)").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
 			text.selectAll(String("#reveal")+String(response.index)).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);			
-
 			setTimeout(function(){graphic.select(new_plot_name).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1); }, fade_in_time);
 			
-
 		}
 		function handleContainerEnter(response) {
 			// response = { direction }
@@ -445,15 +419,15 @@
     <!-- Initialize tooltips by calling the `tippy` function with a CSS selector -->
     <script>
     tippy('button', {
-	  theme: 'light',
-	  placement: 'top-start',
-	  distance: 0,
-	  arrow: true,
-	  arrowType: 'sharp',
-	  arrowTransform: 'scale(0.7)',
-	  allowTitleHTML: true,
-	  html: document.querySelector('#myTemplate') //skinny arrow
-	});
+  theme: 'light',
+  placement: 'top-start',
+  distance: 0,
+  arrow: true,
+  arrowType: 'sharp',
+  arrowTransform: 'scale(0.7)',
+  allowTitleHTML: true,
+  html: document.querySelector('#myTemplate') //skinny arrow
+})	
 	</script>
 
 </body>
