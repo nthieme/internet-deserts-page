@@ -334,14 +334,13 @@
 					<p>In fact, of the five states with the highest percentage of internet desert tracts, four have white population percentages above the national average of 72% with two states having white populations of 90% or above.</p>
 				</div>
 			</div>
-			<div class='step' data-step='8'>
-				<div id = "reveal7", style="opacity: 0;">
-					<p>This stark difference in internet access and internet quality is usually called the "digital divide," and it's<a href = "https://en.wikipedia.org/wiki/Digital_divide_in_the_United_States"> well-documented.</a> In the U.S., rural residents and urban residents are often on different sides of the divide, and internet deserts are just another ruler we can use to measure the distance between them.</p>
-				</div>
+			<div class='step step1' data-step='8'>
 			</div>
 		</div>
 	</section>
 	<section id='outro'>
+	</br>
+		<p>This stark difference in internet access and internet quality is usually called the "digital divide," and it's<a href = "https://en.wikipedia.org/wiki/Digital_divide_in_the_United_States"> well-documented.</a> In the U.S., rural residents and urban residents are often on different sides of the divide, and internet deserts are just another ruler we can use to measure the distance between them.</p>
 	</br>
 		<p>Changing the internet speed and latency thresholds for an internet desert gives a different picture of what parts of the country qualify. Move the sliders around to see which parts of the country are below different thresholds.</p>
 		<iframe src="https://furriertransform.shinyapps.io/deserts_plotter/" scrolling="no" style="border: none; width: 100%; height: 500px"></iframe>
@@ -357,6 +356,7 @@
 		var graphic = container.select('.scroll__graphic');
 		var text = container.select('.scroll__text');
 		var step = text.selectAll('.step');
+		var step1 = text.selectAll('.step1');
 		// initialize the scrollama
 		var scroller = scrollama();
 		// generic window resize listener event
@@ -364,6 +364,7 @@
 			// 1. update height of step elements
 			var stepHeight = Math.floor(window.innerHeight * 1.2);
 			step.style('height', stepHeight + 'px');
+			step1.style('height', 0 + 'px');
 			// 2. update width/height of graphic element
 			var bodyWidth = d3.select('body').node().offsetWidth;
 			var graphicMargin = 16 * 4;
