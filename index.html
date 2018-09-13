@@ -65,6 +65,7 @@
 		}
 		#outro {
 			height: 640px;
+			margin: 0px 200px 0px 200px
 		}
 		/* scrollama */
 		#scroll {
@@ -329,14 +330,27 @@
 				</div>
 			</div>
 			<div class='step' data-step='7'>
-				<div id = "reveal6", style="opacity: 0;">
+				<div id = "reveal7", style="opacity: 0;">
 					<p>In fact, of the five states with the highest percentage of internet desert tracts, four have white population percentages above the national average of 72% with two states having white populations of 90% or above.</p>
+				</div>
+			</div>
+			<div class='step' data-step='8'>
+				<div id = "reveal7", style="opacity: 0;">
+					<p>This stark difference in internet access and internet quality is usually called the "digital divide," and it's<a href = "https://en.wikipedia.org/wiki/Digital_divide_in_the_United_States"> well-documented.</a> In the U.S., rural residents and urban residents are often on different sides of the divide, and internet deserts are just another ruler we can use to measure the distance between them.</p>
 				</div>
 			</div>
 		</div>
 	</section>
 	<section id='outro'>
-		<p>All credit to <a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js</a> for the tutorial code (Demo: Sticky Graphic Position) this is totally copied from.</p></section>
+	</br>
+		<p>Changing the internet speed and latency thresholds for an internet desert gives a different picture of what parts of the country qualify. Move the sliders around to see which parts of the country are below different thresholds.</p>
+		<iframe src="https://furriertransform.shinyapps.io/deserts_plotter/" scrolling="no" style="border: none; width: 100%; height: 500px"></iframe>
+		<p>The dataset used for this analysis, the M-Lab NDT test, is a free test that makes its data publically-available for researchers, journalists, and anyone interested to take a look and analyze. The more tests that get taken, the better the data, and more we can learn about the internet in this country and around the world. If you'd like to contribute, the test can be found <a href= "https://speed.measurementlab.net/#/">at this link</a>, and the data can be <a href ="https://www.measurementlab.net/data/">by following the instructions here</a>.</p>	
+	</br>
+		<p>This article is written in D3 using the <a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js library</a> developed by Russell Goldenberg at The Pudding.</p>
+	</br>
+		<p>Code for this article can be found at <a href="https://github.com/nthieme/nthieme.github.io">my GitHub account</a></p>
+	</section>
 	<script>
 		// using d3 for convenience
 		var container = d3.select('#scroll');
@@ -394,6 +408,9 @@
 			if (response.index!=5){
 				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 0);
 			}
+			if (response.index==8){
+				graphic.select(new_plot_name).transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0)
+			}
 			graphic.selectAll("img:not(#states):not(#legend):not(#legend-circ)").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
 			text.selectAll(String("#reveal")+String(response.index)).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);			
 
@@ -425,7 +442,7 @@
 				text: '.scroll__text',
 				step: '.scroll__text .step',
 				debug: false,
-				offset: 0.28,
+				offset: 0.35,
 			})
 				.onStepEnter(handleStepEnter)
 				.onContainerEnter(handleContainerEnter)
