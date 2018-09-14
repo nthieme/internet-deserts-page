@@ -194,6 +194,11 @@
 			  .tippy-roundarrow {
 			    fill: white;
 			  }
+
+		}
+		iframe{
+			width: 1px;min-width: 100%;
+			border:none; 
 		}
 
 	</style>
@@ -203,8 +208,12 @@
 	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/1.4.3/scrollama.min.js'></script>
 	<script src="https://unpkg.com/tippy.js@2/dist/tippy.all.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.contentWindow.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js/dist/tippy.css">
+
+
 </head>
 
 <body>
@@ -340,15 +349,19 @@
 	</section>
 	<section id='outro'>
 	</br>
+	<div>
 		<p>This stark difference in internet access and internet quality is usually called the "digital divide," and it's<a href = "https://en.wikipedia.org/wiki/Digital_divide_in_the_United_States"> well-documented.</a> In the U.S., rural residents and urban residents are often on different sides of the divide, and internet deserts are just another ruler we can use to measure the distance between them.</p>
 	</br>
 		<p>Changing the internet speed and latency thresholds for an internet desert gives a different picture of what parts of the country qualify. Move the sliders around to see which parts of the country are below different thresholds.</p>
-		<iframe src="https://furriertransform.shinyapps.io/deserts_plotter/" scrolling="no" style="border: none; width: 100%; height: 500px"></iframe>
+	</div>
+		<iframe id="myIframe" src="https://furriertransform.shinyapps.io/deserts_plotter/" scrolling="no"></iframe>
+	<div>
 		<p>The dataset used for this analysis, the M-Lab NDT test, is a free test that makes its data publically-available for researchers, journalists, and anyone interested to take a look and analyze. The more tests that get taken, the better the data, and more we can learn about the internet in this country and around the world. If you'd like to contribute, the test can be found <a href= "https://speed.measurementlab.net/#/">at this link</a>, and the data can be <a href ="https://www.measurementlab.net/data/">by following the instructions here</a>.</p>	
 	</br>
 		<p>This article is written in D3 using the <a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js library</a> developed by Russell Goldenberg at The Pudding.</p>
 	</br>
 		<p>Code for this article can be found at <a href="https://github.com/nthieme/nthieme.github.io">my GitHub account</a></p>
+	</div>
 	</section>
 	<script>
 		// using d3 for convenience
@@ -363,7 +376,7 @@
 		function handleResize() {
 			// 1. update height of step elements
 			var stepHeight = Math.floor(window.innerHeight * 1.2);
-			step.style('height', stepHeight + 'px');
+			//step.style('height', stepHeight + 'px');
 			step1.style('height', 0 + 'px');
 			// 2. update width/height of graphic element
 			var bodyWidth = d3.select('body').node().offsetWidth;
@@ -472,6 +485,7 @@
 	  html: document.querySelector('#myTemplate') //skinny arrow
 	});
 	</script>
+	<script>iFrameResize({log:true}, '#myIframe')</script>
 
 </body>
 
