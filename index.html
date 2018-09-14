@@ -423,7 +423,8 @@
 				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 0);
 			}
 			if (response.index==8){
-				graphic.select(new_plot_name).transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0)
+				graphic.select(new_plot_name).transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);
+				text.select("#reveal7").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
 			}
 			graphic.selectAll("img:not(#states):not(#legend):not(#legend-circ)").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
 			text.selectAll(String("#reveal")+String(response.index)).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);			
