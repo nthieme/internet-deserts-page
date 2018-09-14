@@ -144,14 +144,21 @@
 			position: absolute; 
 			bottom: 0; 
 			left: 0;
-			width: 500px;
-		    height: 40px;
+			width: 550px;
+		    height: 50px;
 		}
 		.legend-circ {
 			position: absolute; 
 			bottom: 0; 
 			left: 0;
 			width: 100px;
+		    height: 50px;
+		}
+		.legend-des {
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			width: 400x;
 		    height: 50px;
 		}
 
@@ -259,6 +266,7 @@
 
 			<div class="visual-wrap">
 				<img src="4.png" class="img1", id='im4', style="opacity: 0;"> 
+				<img src="des_leg.png" class="legend-des", id='legend-des', style="opacity: 0;"> 
 			</div>
 
 			<div class="visual-wrap">
@@ -267,7 +275,7 @@
 			</div>
 
 			<div class="visual-wrap">
-				<img src="6.png" class="img1", id='im6', style="opacity: 0;"> 
+				<img src="6.png" class="img1", id='im6', style="opacity: 0; width: 1000px"> 
 			</div>
 
 			<div class="visual-wrap">
@@ -304,7 +312,7 @@
 					<p> Where black was the dominant color from 2009 to 2015, deep purple and light violet takes its place this year.</p>
 					<p>In 2018, for the first time, the 5-10 and 10-20 Mbps ranges for internet speed are the most common brackets for census tracts.</p>
 					<p>That's reflected in the average internet speed across the U.S. It increased from 4.6 in 2010 to 5.2 in 2012, to 7.9 in 2015, and finally to 10.5 in 2018.</p>
-					<p>For a lot of people, the answer to our original question is yes, then.</p>
+					<p>For a lot of people, then, the internet is getting better at the tremendous improvement rate  of technology.</p>
 				</div>
 			</div>
 			<div class='step' data-step='4'>
@@ -407,10 +415,21 @@
 
 			if(response.index==0){
 				graphic.select("#legend").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",1);
+			}else if(response.index==3){
+					graphic.select("#legend").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity",1);
+					graphic.select("#legend-des").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity",0);
+			}else if(response.index==4){
+					graphic.select("#legend-des").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity",1);
 			}else if(response.index==5){
 				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);
+				graphic.select("#legend-des").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity",0);
 			}else if(response.index==6){
 				graphic.select("#states").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",0); 
+			}
+
+			if (response.index==8){
+				graphic.select(new_plot_name).transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);
+				text.select("#reveal7").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
 			}
 			if(response.index>=4){
 				graphic.select("#legend").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity",0);
@@ -422,11 +441,8 @@
 			if (response.index!=5){
 				graphic.select("#legend-circ").transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 0);
 			}
-			if (response.index==8){
-				graphic.select(new_plot_name).transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);
-				text.select("#reveal7").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
-			}
-			graphic.selectAll("img:not(#states):not(#legend):not(#legend-circ)").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
+
+			graphic.selectAll("img:not(#states):not(#legend):not(#legend-circ):not(#legend-des)").transition().duration(fade_out_time).ease(d3.easeLinear).style("opacity", 0);	
 			text.selectAll(String("#reveal")+String(response.index)).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);			
 
 			setTimeout(function(){graphic.select(new_plot_name).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1); }, fade_in_time);
