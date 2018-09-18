@@ -151,7 +151,7 @@
 			position: absolute; 
 			bottom: 0; 
 			left: 0;
-			width: 100px;
+			width: 160px;
 		    height: 50px;
 		}
 		.legend-des {
@@ -159,7 +159,7 @@
 			bottom: 0; 
 			left: 0;
 			width: 400x;
-		    height: 50px;
+		    height: 70px;
 		}
 
 		.button{
@@ -294,7 +294,7 @@
 			<div class='step' data-step='1'>
 				<div id = "reveal1", style="opacity: 0;">
 					<p>2012 is more of the same.</p>
-					<p>The Mountains area, the Midwest, and rural Maine are all as slow ever.</p>
+					<p>The Mountains area, the Midwest, and rural Maine are all as slow as ever.</p>
 					<p> And in a pattern that repeats over the next couple time chunks, the East Coast from Washington, D.C. to New York City has the fastest internet in the country.</p>
 				</div>
 			</div>
@@ -326,15 +326,19 @@
 				<div id = "reveal5", style="opacity: 0;">
 					<p>Another kind of internet desert is especially damaging.</p>
 					<p>More like <a href="http://americannutritionassociation.org/newsletter/usda-defines-food-deserts">food deserts</a> and <a href="https://www.chronicle.com/interactives/education-deserts">education deserts</a>, these internet deserts are areas of the country where the internet is slow for everyone around.</p> 
-					<p>Every orange dot on the map to the right is an area that in 2018 had internet speed slower than 2.5 Mbps where 80% of the surrounding areas also had internet slower than 2.5 Mbps. Every purple dot is an area that had <button class="button" title="I'm a tooltip!">latency</button> greater than 100 ms where 80% of its neighboring areas did too.</p>
+					<p>Every orange dot on the map to the right is an area that in 2018 had internet speed slower than 1.5 Mbps where 80% of the surrounding areas also had internet slower than 1.5 Mbps. The pink and purple dots represent areas with different kinds of high <button class="button" title="I'm a tooltip!">latency</button>, greater than 70 milliseconds for the pink areas and greater than 120 for the purple ones.</p>
 					
 					<!--This gets removed and injected into the tooltip-->
 					<div id= myTemplate>
-						<p>What's latency?</p>
+						<p style="text-decoration: underline;text-decoration-color: #808080">What's latency?</p>
 						<br/>
 						<p> When you talk to a friend on the internet, your message has to physically leave your computer, travel through the pipes of the internet, and find its way into your friend's computer. The latency is the amount of time it takes your message to get from your computer to your friend's computer.</p>
 						<br/>
 						<p>High latency is bad. Using the internet when you have high latency is like having a conversation with a drunk person while sober. You say something, but there's a lag time before you get a response.</p>
+						<br/>
+						<p>Average latency measures congestion. If a network is poorly designed, it's going to be slow when a lot of people are trying to use it. These are the purple dots. It's not necesarily that there are no connections here, but that the connections that exist can't handle the demand.</p>
+						<br/>
+						<p>Minimum latency measures the ideal experience a service provider can give a user. If minimum latency is high, the provider can't provide quick response times.</p>
 					</div>
 
 				</div>

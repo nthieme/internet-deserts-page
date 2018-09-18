@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg7029"
+   width="160"
+   height="70"
+   viewBox="0 0 160 69.999999"
+   sodipodi:docname="leg_circ.svg"
+   inkscape:version="0.92.1 r15371"
+   inkscape:export-filename="C:\Users\nickt\OneDrive\Documents\GitHub\internet-deserts-page\leg_circ.png"
+   inkscape:export-xdpi="283.79999"
+   inkscape:export-ydpi="283.79999">
+  <metadata
+     id="metadata7035">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7033" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="3000"
+     inkscape:window-height="1875"
+     id="namedview7031"
+     showgrid="false"
+     inkscape:zoom="8.4116468"
+     inkscape:cx="113.97204"
+     inkscape:cy="42.223126"
+     inkscape:window-x="-13"
+     inkscape:window-y="-13"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7029" />
+  <circle
+     style="opacity:1;fill:#7d02a6;fill-opacity:1;stroke:none;stroke-width:1.06620181;stroke-miterlimit:4;stroke-dasharray:1.06620184, 3.19860556;stroke-dashoffset:0;stroke-opacity:1"
+     id="path6951"
+     cx="29.155445"
+     cy="44.207943"
+     r="19.803024" />
+  <circle
+     style="opacity:1;fill:#fa8761;fill-opacity:1;stroke:none;stroke-width:1.06620181;stroke-miterlimit:4;stroke-dasharray:1.06620179, 3.19860546;stroke-dashoffset:0;stroke-opacity:1"
+     id="path6951-9"
+     cx="81.963509"
+     cy="44.208389"
+     r="19.803024" />
+  <circle
+     style="opacity:1;fill:#ffdbeb;fill-opacity:1;stroke:none;stroke-width:1.06620181;stroke-miterlimit:4;stroke-dasharray:1.06620179, 3.19860546;stroke-dashoffset:0;stroke-opacity:1"
+     id="path6951-5"
+     cx="134.77158"
+     cy="44.207943"
+     r="19.803024" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.63100338px;line-height:1.25;font-family:'Lucida Bright';-inkscape-font-specification:'Lucida Bright';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.55581307;"
+     x="61.1833"
+     y="19.094532"
+     id="text7594"
+     inkscape:export-xdpi="283.79999"
+     inkscape:export-ydpi="283.79999"><tspan
+       sodipodi:role="line"
+       id="tspan7592"
+       x="61.1833"
+       y="19.094532"
+       style="fill:#ffffff;stroke-width:2.55581307;">Speed</tspan><tspan
+       sodipodi:role="line"
+       x="61.1833"
+       y="36.133286"
+       id="tspan7596"
+       style="fill:#ffffff;stroke-width:2.55581307;" /></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.63100338px;line-height:1.25;font-family:'Lucida Bright';-inkscape-font-specification:'Lucida Bright, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.55581307;"
+     x="104.35338"
+     y="18.93556"
+     id="text7604"
+     inkscape:export-xdpi="283.79999"
+     inkscape:export-ydpi="283.79999"><tspan
+       sodipodi:role="line"
+       id="tspan7602"
+       x="104.35338"
+       y="18.93556"
+       style="fill:#ffffff;stroke-width:2.55581307;">Avg. Lat</tspan></text>
+  <text
+     id="text7608"
+     y="19.094532"
+     x="3.3704038"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.63100338px;line-height:1.25;font-family:'Lucida Bright';-inkscape-font-specification:'Lucida Bright';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.55581307;"
+     xml:space="preserve"
+     inkscape:export-xdpi="283.79999"
+     inkscape:export-ydpi="283.79999"><tspan
+       y="19.094532"
+       x="3.3704038"
+       id="tspan7606"
+       sodipodi:role="line"
+       style="fill:#ffffff;stroke-width:2.55581307;">Latency </tspan></text>
+</svg>
