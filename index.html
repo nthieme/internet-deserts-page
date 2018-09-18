@@ -210,13 +210,14 @@
 
 	</style>
  	<script src='https://d3js.org/d3.v4.min.js'></script>
- 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.js'></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/1.4.3/scrollama.min.js'></script>
 	<script src="https://unpkg.com/tippy.js@2/dist/tippy.all.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.contentWindow.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.3/mobile-detect.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js/dist/tippy.css">
 
@@ -225,8 +226,9 @@
 
 <body>
 	<section id='intro'>
-		<p class='intro__overline'>
-		</p>
+		<div id = 'mobile_sub'>
+		</div>
+
 		<h1 class='intro__hed'>Internet deserts</h1>
 		<p class='intro__dek'>
 			Nick Thieme
@@ -376,6 +378,17 @@
 	</div>
 	</section>
 	<script>
+		var detector = new MobileDetect(window.navigator.userAgent);
+		console.log( "Mobile: " + detector.mobile());
+		if(detector.mobile()===null){
+			//do nothing
+		}else{
+			d3.select('#mobile_sub').append("p").text("It seems like you're using a mobile device. Flip your phone sideways and pinch zoom out for best results.");
+			var metaTag=document.createElement('meta');
+			metaTag.name = "viewport"
+			metaTag.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+			document.getElementsByTagName('head')[0].appendChild(metaTag);
+		}
 		// using d3 for convenience
 		var container = d3.select('#scroll');
 		var graphic = container.select('.scroll__graphic');
@@ -450,8 +463,6 @@
 			text.selectAll(String("#reveal")+String(response.index)).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1);			
 
 			setTimeout(function(){graphic.select(new_plot_name).transition().duration(fade_in_time).ease(d3.easeLinear).style("opacity", 1); }, fade_in_time);
-			
-
 		}
 		function handleContainerEnter(response) {
 			// response = { direction }
