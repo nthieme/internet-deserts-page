@@ -36,7 +36,7 @@
 		a,
 		a:visited,
 		a:hover {
-			color: #f30;
+			color: #ff7d84;
 			text-decoration: none;
 			border-bottom: 1px solid currentColor;
 		}
@@ -163,19 +163,19 @@
 		}
 
 		.button{
-		     background-color: Transparent;
+		    background-color: Transparent;
 		    background-repeat:no-repeat;
 		    border: none;
 		    cursor:pointer;
 		    overflow: hidden;
 		    outline:none;
     		text-decoration: wavy underline;
-    		text-decoration-color: #f30;
+    		text-decoration-color: #ff7d84;
     		text-align: center;
 			font-size: 1.5rem;
 			text-align: center;
 			font-weight: 300;
-			color: #666;
+			color: white;
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 			width: auto;
    			margin: 0px; 
@@ -214,7 +214,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.js'></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/scrollama/1.4.3/scrollama.min.js'></script>
-	<script src="https://unpkg.com/tippy.js@2/dist/tippy.all.min.js"></script>
+	<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.contentWindow.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.3/mobile-detect.min.js"></script>
@@ -332,15 +332,15 @@
 					
 					<!--This gets removed and injected into the tooltip-->
 					<div id= myTemplate>
-						<p style="text-decoration: underline;text-decoration-color: #808080">What's latency?</p>
+						<p>What's latency?</p>
 						<br/>
 						<p> When you talk to a friend on the internet, your message has to physically leave your computer, travel through the pipes of the internet, and find its way into your friend's computer. The latency is the amount of time it takes your message to get from your computer to your friend's computer.</p>
 						<br/>
 						<p>High latency is bad. Using the internet when you have high latency is like having a conversation with a drunk person while sober. You say something, but there's a lag time before you get a response.</p>
 						<br/>
-						<p>Average latency measures congestion. If a network is poorly designed, it's going to be slow when a lot of people are trying to use it. These are the purple dots. It's not necesarily that there are no connections here, but that the connections that exist can't handle the demand.</p>
+						<p>Average latency measures congestion, either in a home network or the broader internet. If a network isn't setup right, it'll be slow when it's being used many ways at once. These are the purple dots. In those places, family members ask each other to stop using Netflix so they can Skype a coworker. They can get responsive internet, sometimes, maybe, when everthing is just so.</p>
 						<br/>
-						<p>Minimum latency measures the ideal experience a service provider can give a user. If minimum latency is high, the provider can't provide quick response times.</p>
+						<p>Minimum latency measures the ideal experience a service provider can give a user. If minimum latency is high, truly live interaction on the internet is impossible, and no struggling on the user's part can change that.</p>
 					</div>
 
 				</div>
@@ -375,6 +375,10 @@
 		<p>This article is written in D3 using the <a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js library</a> developed by Russell Goldenberg at The Pudding.</p>
 	</br>
 		<p>Code for this article can be found at <a href="https://github.com/nthieme/nthieme.github.io">my GitHub account</a></p>
+	<br/>
+		<p>A huge thanks to Georgia Bullen for guiding this article from conception to completion and helping to create and strengthen the ideas in it at every step. Another big thank you to Peter Boothe for explaining the difference between minimum RTT and average RTT, and coming up with examples to illustrate their difference.</p>
+
+
 	</div>
 	</section>
 	<script>
@@ -507,14 +511,13 @@
     <!-- Initialize tooltips by calling the `tippy` function with a CSS selector -->
     <script>
     tippy('button', {
+      content: document.querySelector('#myTemplate'),
 	  theme: 'light',
 	  placement: 'top-start',
 	  distance: 0,
 	  arrow: true,
 	  arrowType: 'sharp',
-	  arrowTransform: 'scale(0.7)',
-	  allowTitleHTML: true,
-	  html: document.querySelector('#myTemplate') //skinny arrow
+	  arrowTransform: 'scale(0.7)' //skinny arrow
 	});
 	</script>
 	<script>iFrameResize({log:true}, '#myIframe')</script>
